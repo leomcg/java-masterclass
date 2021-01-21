@@ -48,7 +48,30 @@ public class Hamburger {
 	
 	public double itemizeHamburger() {
 		double hamburgerPrice = this.price;
-		System.out.println(this.name + " hamburger on a " + this.breadRoll + " roll price is " + this.price);
+		System.out.println(this.name + " hamburger with " + this.meat + " on a " + this.breadRoll + " roll price is " + this.price);
+		
+		if(this.addition1Name != null) {
+			hamburgerPrice += this.addition1Price;
+			System.out.println("Added " + this.addition1Name + " for an extra " + this.addition1Price + " dollars.");
+		}
+		
+		if(this.addition2Name != null) {
+			hamburgerPrice += this.addition2Price;
+			System.out.println("Added " + this.addition2Name + " for an extra " + this.addition2Price + " dollars.");
+		}
+		
+		if(this.addition3Name != null) {
+			hamburgerPrice += this.addition3Price;
+			System.out.println("Added " + this.addition3Name + " for an extra " + this.addition3Price + " dollars.");
+		}
+		
+		if(this.addition4Name != null) {
+			hamburgerPrice += this.addition4Price;
+			System.out.println("Added " + this.addition4Name + " for an extra " + this.addition4Price + " dollars.");
+		}
+		
+		return hamburgerPrice;
+		
 	}
 	
 }
