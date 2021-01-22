@@ -1,16 +1,20 @@
 package arrays;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
-public class Arrays {
+public class MyArrays {
 	public static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
 		int[] myArray = createArray(3);
 		
 		int[] mySortedArray = sortArray(myArray);
 		
-
-
+		int minValue = findMinValue(myArray);
+		
+		
+		System.out.println("Sorted Array: " + Arrays.toString(mySortedArray));
+		System.out.println("Smallest value: " + minValue);
 		
 	}
 	
@@ -44,7 +48,7 @@ public class Arrays {
 		return sortedArray;
 	}
 	
-	public int finMinValue(int[] array) {
+	public static int findMinValue(int[] array) {
 		int minValue = array[0];
 		for(int i = 0; i < array.length - 1; i++) {
 			if(array[i+1] < array[i]) {
