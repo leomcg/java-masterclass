@@ -2,8 +2,6 @@ package arrayList;
 
 import java.util.Scanner;
 
-
-
 public class Main {
 	public static Scanner scanner = new Scanner(System.in);
 	
@@ -28,18 +26,26 @@ public class Main {
 				addItem();
 				break;
 			case 3:
+				list.printList();
 				modifyItem();
 				break;
 			case 4:
+				list.printList();
 				removeItem();
 				break;
 			case 5:
 				searchForItem();
 				break;
 			case 6:
+				removeItemByName();
+				break;
+			case 7:
 				System.out.println("Thank you for using our Grocery List app");
 				quit = true;
 				break;
+			default:
+				System.out.println("Option not found");
+				printInstructions();
 			}
 		}
 	}
@@ -52,7 +58,8 @@ public class Main {
 		System.out.println("\n3 - To modify an item in the list ");
 		System.out.println("\n4 - To remove an item from the list ");
 		System.out.println("\n5 - To search for an item in the list ");
-		System.out.println("\n6 - To quit the application ");
+		System.out.println("\n6 - To search for an item in the list ");
+		System.out.println("\n7 - To quit the application ");
 	}
 	
 	public static void addItem() {
@@ -83,6 +90,12 @@ public class Main {
 		} else {
 			System.out.println("item not found");
 		}
+	}
+	
+	public static void removeItemByName() {
+		System.out.print("Enter item name: ");
+		String itemName = scanner.nextLine();
+		list.removeItemByName(itemName);
 	}
 	
 	

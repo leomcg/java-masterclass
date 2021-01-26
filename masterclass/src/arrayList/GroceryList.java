@@ -21,7 +21,7 @@ public class GroceryList {
 	public void modifyGroceryItem(int index, String newItem) {
 		String previousItem = groceryList.get(index);
 		groceryList.set(index, newItem);
-		System.out.println("Grocery item " + (index + 1) + "was modified from " +
+		System.out.println("Grocery item " + (index + 1) + " was modified from " +
 				previousItem + " to " + newItem 
 				);
 	}
@@ -39,5 +39,16 @@ public class GroceryList {
 		}
 		
 		return null;
+	}
+	
+	public void removeItemByName(String item) {
+		int position = groceryList.indexOf(item);
+		if(position == -1) {
+			System.out.println(item + " is not in the list");
+			return;
+		}
+		groceryList.remove(position);
+		System.out.println(item + " was removed from grocery list");
+				
 	}
 }
