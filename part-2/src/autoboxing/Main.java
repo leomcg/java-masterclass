@@ -1,19 +1,22 @@
 package autoboxing;
 
-import java.util.ArrayList;
-
 public class Main {
-	private static ArrayList<Integer> intArrayList = new ArrayList<Integer>();
 	
 	public static void main(String[] args) {
-		for(int i = 0; i < 10; i ++) {
-			
-			intArrayList.add(Integer.valueOf(i));
-		}
+		Bank bank = new Bank("Santander");
 		
-		for (int i = 0; i < 10; i++) {
-			System.out.println(intArrayList.get(i).intValue());
-		}
+		bank.addBranch("Berrini");
+		bank.addCustomer("Berrini", "Leonardo", 50.05);
+		bank.addCustomer("Berrini", "Suely", 20.05);
+		bank.addCustomer("Berrini", "Gustavo", 380.05);
+		bank.addCustomer("Berrini", "Junior", 150.15);
+		
+		bank.addCustomerTransaction("Berrini", "Leonardo", -20.0);
+		bank.addCustomerTransaction("Berrini", "Leonardo", 35.5);
+		bank.addCustomerTransaction("Berrini", "Suely", 70.5);
+		bank.addCustomerTransaction("Berrini", "Junior", -50.0);
+		
+		bank.listCustomers("Berrini", true);
 		
 	}
 	
