@@ -2,12 +2,13 @@ package linkedList;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Main {
 	
-	private static ArrayList<Album> albums = new ArrayList<Album>();
+	private static List<Album> albums = new ArrayList<>();
 	
 	public static void main(String[] args) {
 		Album hibridTheory = new Album("Hybrid Theory", "Linkin Park");
@@ -43,7 +44,7 @@ public class Main {
 		
 		albums.add(meteora);
 		
-		LinkedList<Song> playList = new LinkedList<Song>();
+		List<Song> playList = new ArrayList<>();
 		
 		albums.get(0).addToPlaylist("Crawling", playList);
 		albums.get(0).addToPlaylist("In the End", playList);
@@ -56,7 +57,7 @@ public class Main {
 		play(playList);
 	}
 	
-	private static void play(LinkedList<Song> playList) {
+	private static void play(List<Song> playList) {
 		ListIterator<Song> iterator = playList.listIterator();
 		Scanner scanner = new Scanner(System.in);
 		boolean quit = false;
@@ -107,10 +108,24 @@ public class Main {
 				}
 				break;
 			case 3:
-				if(iterator.hasPrevious()) {
-					iterator.previous();	
+				if(goingForward) {
+					if(iterator.hasPrevious()) {
+						System.out.println("Replaying " + iterator.previous().toString());
+						goingForward = false;
+					} else {
+						System.out.println("We are at the start of the playlist");
+						goingForward = true;
+						
+					}
+				} else {
+					if(iterator.hasNext()) {
+						System.out.println("Replaying " + iterator.next().toString());
+						goingForward = true;
+					} else {
+						System.out.println("We have reached the end of the playlist");
+						goingForward = false;
+					}
 				}
-				System.out.println("Repeating track " + iterator.next().toString());
 				break;
 			case 4:
 				for (Song currentSong: playList) {
