@@ -61,10 +61,12 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		boolean quit = false;
 		boolean goingForward = true;
+		int trackNumber = 0;
 		
 		if(playList.size() == 0) {
 			System.out.println("No songs in the playlist");
 		} else {
+			printMenu();
 			System.out.println("Now playing " + iterator.next().toString());
 		}
 		
@@ -105,18 +107,34 @@ public class Main {
 				}
 				break;
 			case 3:
+				if(iterator.hasPrevious()) {
+					iterator.previous();	
+				}
+				System.out.println("Repeating track " + iterator.next().toString());
 				break;
 			case 4:
-				// printList(playList);
+				for (Song currentSong: playList) {
+					trackNumber++;
+					System.out.println(trackNumber + " - " + currentSong.toString());
+				}
 				break;
 			case 5:
-				// printMenu();
+				printMenu();
 				break;
 			}
 		}
-		
-
 	}
+	private static void printMenu() {
+		System.out.println("Available options:\n Press: ");
+		System.out.println("0 - to quit\n" +
+				"1 - to go to previous song\n" +
+				"2 - to go to the next song\n" +
+				"3 - to replay the current song\n" +
+				"4 - to print playlist\n" +
+				"5 - to show menu options\n");
+		
+	}
+	
 	
 	
 	
