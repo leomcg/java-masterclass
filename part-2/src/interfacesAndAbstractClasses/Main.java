@@ -5,9 +5,15 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Player myPlayer = new Player("Link", 100, 35);
-		System.out.println(myPlayer.toString());
+		Player link = new Player("Link", 100, 35);
+		System.out.println(link);
+		saveValues(link);
 		
+		link.setHitPoints(8);
+		System.out.println(link);
+		link.setWeapon("Master sword");
+		saveValues(link);
+		loadValues(link);
 	}
 	
 	public static ArrayList<String> readValues() {
