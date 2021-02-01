@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Gearbox {
 	private ArrayList<Gear> gears;
 	private int maxGears;
-	private int gearNumber = 0;
+	private int currentGear = 0;
 	
 	public Gearbox(int maxGears) {
 		super();
@@ -15,7 +15,21 @@ public class Gearbox {
 		this.gears.add(neutral);
 	}
 	
-	public class Gear {
+	public void addGear(int number, double ratio) {
+		if(number > 0 && number <= maxGears) {
+			this.gears.add(new Gear(number, ratio));
+		}
+	}
+	
+	public void changeGear(int newGear) {
+		if(newGear >= 0 && newGear < this.gears.size()) {
+			this.currentGear = newGear;
+		}
+	}
+	
+	
+	
+	private class Gear {
 		int gearNumber;
 		private double ratio;
 		public Gear(int gearNumber, double ratio) {
