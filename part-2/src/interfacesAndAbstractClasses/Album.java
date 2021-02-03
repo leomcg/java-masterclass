@@ -26,7 +26,7 @@ public class Album {
 	
 	public boolean addToPlaylist(int trackNumber, List<Song>playList) {
 		Song checkedSong = this.songs.findSong(trackNumber);
-		if(!playList.contains(checkedSong) && checkedSong != null) {
+		if(checkedSong != null) {
 			playList.add(checkedSong);
 			return true;
 		} else {
