@@ -58,9 +58,8 @@ public class MyLinkedList implements NodeList {
 
 	@Override
 	public boolean removeItem(ListItem item) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		
+00	}
 
 	@Override
 	public void traverse(ListItem root) {
