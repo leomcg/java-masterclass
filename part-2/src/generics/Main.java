@@ -4,6 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		Team<SoccerPlayer> flamengo = new Team<>("Flamengo");
 		Team<SoccerPlayer> vasco = new Team<>("Vasco");
+		Team<SoccerPlayer> inter = new Team<>("Internacional");
 		SoccerPlayer gabigol = new SoccerPlayer("Gabigol");
 		
 		Team<BasketballPlayer> lakers = new Team<>("Lakers");
@@ -15,7 +16,10 @@ public class Main {
 		lakers.addPlayer(lebron);
 		
 		flamengo.playMatch(vasco, 3, 0);
-		flamengo.playMatch(vasco, 6, 0);
-		System.out.println(flamengo.getWon());
+		flamengo.playMatch(inter, 6, 0);
+		vasco.playMatch(inter, 3, 0);
+		System.out.println(flamengo.getName() + ": " + flamengo.rank());
+		System.out.println(vasco.getName() + ": " + vasco.rank());
+		System.out.println(inter.getName() + ": " + inter.rank());
 	}
 }
