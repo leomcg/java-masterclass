@@ -2,10 +2,10 @@ package generics;
 
 import java.util.ArrayList;
 
-public class Team<T extends Player> {
+public class Team<T extends Player> implements Comparable<Team<T>> {
 	String name;
 	
-	int played = 0;
+	private int played = 0;
 	int won = 0;
 	int lost = 0;
 	int tied = 0;
@@ -62,6 +62,16 @@ public class Team<T extends Player> {
 	
 	public int rank() {
 		return won * 3 + tied;
+	}
+
+	@Override
+	public int compareTo(Team<T> otherTeam) {
+		if (this.rank() > otherTeam.rank()) {
+			return -1;
+		} else if (this.rank() < otherTeam.rank()) {
+			return 1;
+		}
+		return 0;
 	}
 	
 }

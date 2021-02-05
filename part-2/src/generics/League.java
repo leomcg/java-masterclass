@@ -1,8 +1,9 @@
 package generics;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public abstract class League<T extends Team>  {
+public class League<T extends Team>  {
 	private String name;
 	private ArrayList<T> league = new ArrayList<>();
 	
@@ -20,5 +21,11 @@ public abstract class League<T extends Team>  {
 		}
 	}
 	
+	public void printRanking() {
+		Collections.sort(league);
+		for (T team : league) {
+			System.out.println(team.getName() + " (" + team.getPlayed() + " games) : " + team.rank());
+		}
+	}
 	
 }
