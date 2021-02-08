@@ -58,8 +58,8 @@ public class MyLinkedList implements NodeList {
 
 	@Override
 	public boolean removeItem(ListItem item) {
-		
-00	}
+		return true;
+		}
 
 	@Override
 	public void traverse(ListItem root) {
