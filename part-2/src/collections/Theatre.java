@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Theatre {
 	private String theaterName;
-	private List<Seat> seats = new ArrayList<>();
+	public List<Seat> seats = new ArrayList<>();
 	
 	Theatre(String name, int numRows, int seatsPerRow) {
 		this.theaterName = name;
