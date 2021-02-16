@@ -7,23 +7,25 @@ import java.util.List;
 public class Main {
 	public static void main(String[] args) {
 		Theatre cinemark = new Theatre("Cinemark", 8, 12);
-		List<Theatre.Seat> seatsCopy = new ArrayList<>(cinemark.seats);
-		printList(seatsCopy);
-		seatsCopy.get(1).reserve();
-		cinemark.reserveSeat("A02");
 		
-		Collections.reverse(seatsCopy);
-		Collections.shuffle(cinemark.seats);
-		printList(seatsCopy);
-		printList(cinemark.seats);
-
+		cinemark.reserveSeat("D12");
+		cinemark.reserveSeat("B13");
+		List<Theatre.Seat> reverseSeats = new ArrayList<>(cinemark.getSeats());
+		Collections.reverse(reverseSeats);
+		printList(reverseSeats);
+		
+		List<Theatre.Seat> priceSeats = new ArrayList<>(cinemark.getSeats());
+		priceSeats.add(cinemark.new Seat("B00", 13.00));
+		priceSeats.add(cinemark.new Seat("A00", 13.00));
+		Collections.sort(priceSeats, Theatre.PRICE_ORDER);
+		printList(priceSeats);
 
 		
 	}
 	
 	public static void printList(List<Theatre.Seat> list) {
 		for(Theatre.Seat seat : list) {
-			System.out.println(seat.getSeatNumber());
+			System.out.println(seat.getSeatNumber() + " $" + seat.getPrice());
 		}
 		System.out.println("=================================================");
 	}
