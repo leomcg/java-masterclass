@@ -35,6 +35,14 @@ public class Main {
         locations.get(5).addExit("S", 1);
         locations.get(5).addExit("W", 2);
 //        locations.get(5).addExit("Q", 0);
+        
+        Map<String, String> dictionary = new HashMap<>();
+        dictionary.put("NORTH", "N");
+        dictionary.put("SOUTH", "S");
+        dictionary.put("WEST", "W");
+        dictionary.put("EAST", "E");
+        dictionary.put("QUIT", "Q");
+        
 
         int loc = 1;
         while(true) {
@@ -50,32 +58,21 @@ public class Main {
             System.out.println();
             
             String direction = scanner.nextLine().toUpperCase();
+            
+            if(direction.length() > 1) {
+            	String[] split = direction.split(" ");
+            	for(String s : split) {
+            		if(dictionary.containsKey(s)) {
+            			direction = dictionary.get(s);
+            			break;
+            		}
+            	}
+            }
+            
             if(exits.containsKey(direction)) {
             	loc = exits.get(direction);
             } else {
-            	String[] split = direction.split(" ");
-            	for(String i : split) {
-            		switch(i) {
-            		case "NORTH":
-            			direction = "N";
-            			break;
-            		case "SOUTH":
-            			direction = "S";
-            			break;
-            		case "WEST":
-            			direction = "W";
-            			break;
-            		case "EAST":
-            			direction = "E";
-            			break;
-            		}
-            		
-            	}   
-            	if(exits.containsKey(direction)) {
-                	loc = exits.get(direction);
-            	} else {
-            		System.out.println("You cannot go in this direction");
-            	}
+            	System.out.println("You cannot go in this direction");
             }
         }
 
